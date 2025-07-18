@@ -1,0 +1,5 @@
+/mnt/data2/tahsieh/DNS-Challenge/pdns_training_set/raw/clean/english/vctk/eng_vctk_p280.wav
+/mnt/data2/tahsieh/DNS-Challenge/pdns_training_set/raw/clean/english/vctk/eng_vctk_p279.wav
+/mnt/data2/tahsieh/DNS-Challenge/pdns_training_set/raw/clean/english/vctk/eng_vctk_p298.wav
+/mnt/data2/tahsieh/DNS-Challenge/pdns_training_set/raw/clean/english/vctk/eng_vctk_p292.wav
+/mnt/data2/tahsieh/DNS-Challenge/pdns_training_set/raw/clean/english/vctk/eng_vctk_p226.wav

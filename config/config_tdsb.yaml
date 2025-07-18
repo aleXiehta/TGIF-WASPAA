@@ -1,0 +1,71 @@
+train:
+  batch_size: 8
+  num_epochs: 1000
+  accumulation_steps: 1
+  num_workers: 4
+  log_lr: true
+  half_lr: true
+  precision: "32"
+  log_dir: exp/td_speakerbeam/
+  log_interval: 10
+
+scheduler:
+  lr_reduce_patience: 20
+
+# filterbank config
+filterbank:
+  n_filters: 512
+  kernel_size: 16
+  stride: 8
+
+# Network config
+masknet:
+  n_blocks: 8
+  n_repeats: 3
+  mask_act: relu
+  bn_chan: 128
+  skip_chan: 128
+  hid_chan: 512
+
+enroll:
+  i_adapt_layer: 7
+  adapt_layer_type: mul
+  adapt_enroll_dim: 128
+
+dataset:
+  root_dir: "TGIF-Dataset"
+  segment_length: 3
+  enrollment_length: 3
+  sample_rate: 16000
+  transform: null
+
+# Optim config
+optim:
+  optimizer: adam
+  lr: 0.0001
+  weight_decay: 0.
+
+ddp:
+  use_ddp: true
+  num_nodes: 4
+  num_gpus: 4
+  strategy: 'ddp'
+
+seed: 42
+
+early_stopping:
+  monitor: 'val_loss'
+  patience: 120
+  verbose: true
+  mode: 'min'
+  delta: 0.0
+
+checkpoint:
+  dir: 'exp/td_speakerbeam/checkpoints'
+  ckpt_name: 'best'
+  save_best: true
+  save_last: true
+  verbose: true
+  monitor: 'val_loss'
+  mode: min
+  resume: 'exp/td_speakerbeam/checkpoints/last.ckpt'

@@ -1,0 +1,68 @@
+train:
+  batch_size: 8
+  num_epochs: 1000
+  accumulation_steps: 1
+  num_workers: 4
+  log_lr: true
+  half_lr: true
+  precision: "32"
+  log_dir: exp/spex_plus_st_P128
+  log_interval: 10
+
+scheduler:
+  lr_reduce_patience: 20
+
+loss:
+  gamma: 0.5
+
+# filterbank config
+model:
+  L1: 20
+  L2: 80
+  L3: 160
+  N: 256
+  B: 8
+  O: 256
+  P: 128
+  Q: 3
+  num_spks: 1947
+  spk_embed_dim: 256
+  causal: False
+
+dataset:
+  root_dir: "TGIF-Dataset"
+  segment_length: 3
+  enrollment_length: 3
+  sample_rate: 16000
+  transform: null
+
+# Optim config
+optim:
+  optimizer: adam
+  lr: 0.001
+  weight_decay: 0.
+
+ddp:
+  use_ddp: true
+  num_nodes: 4
+  num_gpus: 4
+  strategy: 'ddp'
+
+seed: 42
+
+early_stopping:
+  monitor: 'val_loss'
+  patience: 200
+  verbose: true
+  mode: 'min'
+  delta: 0.0
+
+checkpoint:
+  dir: 'exp/spex_plus_st_P128/checkpoints'
+  ckpt_name: 'best'
+  save_best: true
+  save_last: true
+  verbose: true
+  monitor: 'val_loss'
+  mode: min
+  resume: null #'exp/spex_plus/checkpoints/last.ckpt'
