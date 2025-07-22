@@ -84,7 +84,7 @@ If you find this work helpful, please cite our paper:
 @inproceedings{hsieh2025waspaa,
   title={TGIF: Talker Group-Informed Familiarization of Target Speaker Extraction},
   author={Tsun-An Hsieh and Minje Kim},
-  booktitle={Proc. WASPAA},
+  booktitle={Proc. of the IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA)},
   year={2025}
 }
 ```
